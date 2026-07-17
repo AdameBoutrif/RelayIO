@@ -4,8 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+fastapi = "*"
+sqlalchemy = "*"
+psycopg = {extras = ["binary"], version = "*"}
+pydantic-settings = "*"
+uvicorn = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.14"
+python_version = "3.13"
