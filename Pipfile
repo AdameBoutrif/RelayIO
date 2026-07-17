@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 fastapi = "*"
 sqlalchemy = "*"
-psycopg = {extras = ["binary"], version = "*"}
 pydantic-settings = "*"
 uvicorn = "*"
+psycopg = "*"
 
 [dev-packages]
 
