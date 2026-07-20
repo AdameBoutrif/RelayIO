@@ -14,5 +14,7 @@ if movie is not None:
     print(movie.title)
     for sequence in movie.sequences:
         print(sequence.sequence_code)
+        for shot in sequence.shots:
+            print("     ", shot.shot_code)
 
 db.close()

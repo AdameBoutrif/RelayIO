@@ -1,7 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from collections.abc import Generator
 
 from app_relay.config import settings
+
 
 DATABASE_URL = (
     f"postgresql+psycopg://"
@@ -18,3 +20,12 @@ SessionLocal = sessionmaker(
     autocommit=False,
     bind=engine,
 )
+
+def get_db() -> Generator:
+    db = SessionLocal()
+
+    try:
+        yield db
+
+    finally:
+        db.close()

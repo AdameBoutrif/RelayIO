@@ -7,6 +7,7 @@ from app_relay.models.base import Base
 
 if TYPE_CHECKING: 
     from app_relay.models.movie import Movie
+    from app_relay.models.shot import Shot
 
 class Sequence(Base):
 
@@ -26,6 +27,10 @@ class Sequence(Base):
 
     movie: Mapped["Movie"] = relationship(
         back_populates="sequences"
+    )
+
+    shots: Mapped[list["Shot"]] = relationship(
+        back_populates="sequence"
     )
 
     def __repr__(self) -> str:
