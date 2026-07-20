@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from datetime import date
+from datetime import date, datetime
 
 from app_relay.models.base import Base
 
@@ -14,8 +14,12 @@ class Task(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
-    shot_id: Mapped["Shot"] = relationship(
-        back_populates="shots"
+    shot_id: Mapped[int] = mapped_column(
+        ForeignKey("shots.id"),
+        nullable=False,
+    )
+    shot: Mapped["Shot"] = relationship(
+        back_populates="tasks"
     )
 
     task_type_id: Mapped[int] = mapped_column(
@@ -30,14 +34,14 @@ class Task(Base):
 
     status_id: Mapped[int] = mapped_column(
         ForeignKey("task_statuses.id"),
-        default=0,
+        default=1,
     )
 
-    due_date: Mapped[date]
+    due_date: Mapped[datetime]
 
     priority_id: Mapped[int] = mapped_column(
         ForeignKey("task_priorities.id"),
-        default=0,
+        default=1,
     )
 
     task_note: Mapped[str] = mapped_column(

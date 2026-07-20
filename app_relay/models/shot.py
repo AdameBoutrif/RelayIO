@@ -7,6 +7,7 @@ from app_relay.models.base import Base
 
 if TYPE_CHECKING:
     from app_relay.models.sequence import Sequence
+    from app_relay.models.task import Task
 
 class Shot(Base):
     __tablename__ = "shots"
@@ -28,6 +29,10 @@ class Shot(Base):
 
     sequence: Mapped["Sequence"] = relationship(
         back_populates="shots"
+    )
+
+    tasks: Mapped[list["Task"]] = relationship(
+        back_populates="shot"
     )
 
     def __repr__(self):
