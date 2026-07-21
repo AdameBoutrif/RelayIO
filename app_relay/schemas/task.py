@@ -14,6 +14,7 @@ class TaskRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 class TaskCreate(BaseModel):
+    id: int
     shot_id: int
     artist_id: int
     task_type_id: int
