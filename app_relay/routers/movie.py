@@ -31,3 +31,4 @@ def read_movie(movie_id: int, db: Session = Depends(get_db)):
             detail="Movie not found"
         )
     return movie
+

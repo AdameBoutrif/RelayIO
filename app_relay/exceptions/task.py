@@ -1,0 +1,2 @@
+class InvalidDueDateError(Exception):
+    pass
