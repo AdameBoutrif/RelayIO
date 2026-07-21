@@ -2,12 +2,12 @@ from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from datetime import date, datetime
+from datetime import date
 
-from app_relay.models.base import Base
+from backend.app_relay.models.base import Base
 
 if TYPE_CHECKING:
-    from app_relay.models.shot import Shot
+    from backend.app_relay.models.shot import Shot
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -37,7 +37,7 @@ class Task(Base):
         default=1,
     )
 
-    due_date: Mapped[datetime]
+    due_date: Mapped[date]
 
     priority_id: Mapped[int] = mapped_column(
         ForeignKey("task_priorities.id"),

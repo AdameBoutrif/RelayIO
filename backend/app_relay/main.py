@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from app_relay.routers.movie import router as movies_router
-from app_relay.routers.task import router as task_router
-from app_relay.handlers.exceptions import InvalidDueDateError
+from backend.app_relay.routers.movie import router as movies_router
+from backend.app_relay.routers.task import router as task_router
+from backend.app_relay.handlers.exceptions import InvalidDueDateError
 
 app = FastAPI()
 

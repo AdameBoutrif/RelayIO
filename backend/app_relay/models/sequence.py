@@ -3,11 +3,11 @@ from typing import TYPE_CHECKING
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app_relay.models.base import Base
+from backend.app_relay.models.base import Base
 
 if TYPE_CHECKING: 
-    from app_relay.models.movie import Movie
-    from app_relay.models.shot import Shot
+    from backend.app_relay.models.movie import Movie
+    from backend.app_relay.models.shot import Shot
 
 class Sequence(Base):
 

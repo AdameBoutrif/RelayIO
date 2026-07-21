@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app_relay.database import get_db
-from app_relay.crud.movie import get_movies, get_movie
-from app_relay.schemas import MovieRead
+from backend.app_relay.database import get_db
+from backend.app_relay.crud.movie import get_movies, get_movie
+from backend.app_relay.schemas import MovieRead
 
 router = APIRouter(
     prefix="/movies",

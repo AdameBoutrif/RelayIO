@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from collections.abc import Generator
 
-from app_relay.config import settings
+from backend.app_relay.config import settings
 
 
 DATABASE_URL = (

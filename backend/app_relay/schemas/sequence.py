@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
-from app_relay.schemas.shot import ShotRead
+from backend.app_relay.schemas.shot import ShotRead
 
 class SequenceRead(BaseModel):
     id: int

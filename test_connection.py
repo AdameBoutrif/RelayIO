@@ -1,4 +1,4 @@
-from app_relay.database import SessionLocal
+from backend.app_relay.database import SessionLocal
 
 db = SessionLocal()
 

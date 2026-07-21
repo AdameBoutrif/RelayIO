@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
-from app_relay.schemas.sequence import SequenceRead
+from backend.app_relay.schemas.sequence import SequenceRead
 
 class MovieRead(BaseModel):
     id: int

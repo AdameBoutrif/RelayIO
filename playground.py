@@ -1,5 +1,5 @@
-from app_relay.database import SessionLocal
-from app_relay.models import Movie
+from backend.app_relay.database import SessionLocal
+from backend.app_relay.models import Movie
 
 db = SessionLocal()
 
