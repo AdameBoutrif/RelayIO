@@ -1,13 +1,14 @@
+from datetime import date
 from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from datetime import date
 
 from backend.app_relay.models.base import Base
 
 if TYPE_CHECKING:
     from backend.app_relay.models.shot import Shot
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -19,7 +20,7 @@ class Task(Base):
         nullable=False,
     )
     shot: Mapped["Shot"] = relationship(
-        back_populates="tasks"
+         back_populates="tasks"
     )
 
     task_type_id: Mapped[int] = mapped_column(
@@ -36,6 +37,8 @@ class Task(Base):
         ForeignKey("task_statuses.id"),
         default=1,
     )
+
+    start_date: Mapped[date]
 
     due_date: Mapped[date]
 

@@ -1,11 +1,22 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app_relay.routers.movie import router as movies_router
 from backend.app_relay.routers.task import router as task_router
 from backend.app_relay.handlers.exceptions import InvalidDueDateError
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.exception_handler(InvalidDueDateError)
 def invalid_due_date_on_task_error(request: Request, exc: InvalidDueDateError):

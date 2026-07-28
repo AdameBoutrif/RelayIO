@@ -2,3 +2,8 @@ from .base import Base
 from .movie import Movie
 from .sequence import Sequence
 from .shot import Shot
+from .artist import Artist
+from .task_status import Task_Status
+from .task_priority import Task_Priority
+from .task_type import Task_Type
+from .department import Department
