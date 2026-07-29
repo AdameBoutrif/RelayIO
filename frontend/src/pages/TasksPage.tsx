@@ -38,13 +38,12 @@ export function TasksPage() {
                         className="rounded-md border border-slate-300 p-4"
                     >
                         <p><strong>ID:</strong> {task.id}</p>
-                        <p><strong>Shot:</strong> {task.shot_id}</p>
-                        <p><strong>Artist:</strong> {task.artist_id}</p>
-                        <p><strong>Status:</strong> {task.status_id}</p>
-                        <p><strong>Start Date:</strong> {task.start_date}</p>
+                        <p><strong>Shot:</strong> {task.shot}</p>
+                        <p><strong>Artist:</strong> {task.artist}</p>
+                        <p><strong>Task Type:</strong> {task.task_type}</p>
+                        <p><strong>Status:</strong> {task.status}</p>
+                        <p><strong>Priority:</strong> {task.priority}</p>
                         <p><strong>Due Date:</strong> {task.due_date}</p>
-                        <p><strong>Priority:</strong> {task.priority_id}</p>
-                        <p><strong>Note:</strong> {task.task_note}</p>
                     </li>
                 ))}
             </ul>

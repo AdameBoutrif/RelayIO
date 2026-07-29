@@ -3,7 +3,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from backend.app_relay.crud.task import get_task, get_tasks
+from backend.app_relay.crud.task import get_task, get_task_summaries, get_tasks
 from backend.app_relay.database import get_db
 from backend.app_relay.schemas.task import TaskCreate, TaskRead
 from backend.app_relay.services.task import create_task_service
@@ -14,12 +14,12 @@ router = APIRouter(
 )
 
 @router.get(
-        "",
-        response_model=list[TaskRead],
+        "/"
+        #response_model=list[TaskRead],
 )
 
 def read_tasks(db: Session = Depends(get_db)):
-    return get_tasks(db)
+    return get_task_summaries(db)
 
 
 

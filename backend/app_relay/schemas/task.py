@@ -28,3 +28,13 @@ class TaskCreate(BaseModel):
     priority_id: int
     task_note: str | None = None
 
+class TaskSummary(BaseModel):
+    id: int
+    shot: str
+    artist: str
+    task_type: str
+    status: str
+    priority: str
+    due_date: date
+
+    model_config = ConfigDict(from_attributes=True)
