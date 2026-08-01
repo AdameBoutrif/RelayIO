@@ -67,6 +67,3 @@ class TaskUpdate(BaseModel):
     start_date: date | None = None
     due_date: date | None = None
     task_note: str | None = None
-
-class TaskDelete(BaseModel):
-    status_id: int | None

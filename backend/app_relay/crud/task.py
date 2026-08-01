@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session, selectinload
 from backend.app_relay.models.task import Task
 from backend.app_relay.schemas.task import (
     TaskCreate,
-    TaskDelete,
     TaskSummary,
     TaskUpdate,
 )
@@ -109,6 +108,7 @@ def update_task(db: Session, task_id: int, task_in: TaskUpdate ) -> Task | None:
 """Delete Task"""
 
 def delete_task(db:Session, task_id: int) -> Task | None:
+
     db_task = (
          db.query(Task)
          .filter(Task.id == task_id)
