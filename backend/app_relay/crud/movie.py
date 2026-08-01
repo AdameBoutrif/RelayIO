@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session, selectinload
 from backend.app_relay.models.movie import Movie
 from backend.app_relay.models.sequence import Sequence
 
+
 def get_movies(db: Session) -> list[Movie]:
     return db.query(Movie).all()
 

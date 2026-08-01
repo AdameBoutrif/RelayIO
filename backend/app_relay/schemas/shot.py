@@ -7,3 +7,7 @@ class ShotRead(BaseModel):
     frame_end: int
 
     model_config = ConfigDict(from_attributes=True)
+
+class ShotSummary(BaseModel):
+    id: int
+    shot_code: str

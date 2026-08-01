@@ -10,3 +10,8 @@ class ArtistRead(BaseModel):
     department: int
 
     model_config = ConfigDict(from_attributes=True)
+
+class ArtistSummary(BaseModel):
+    id: int
+    full_name: str
+
