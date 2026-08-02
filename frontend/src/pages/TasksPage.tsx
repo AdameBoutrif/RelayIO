@@ -1,52 +1,24 @@
-import { useState, useEffect } from "react";
-
-import type { Task } from "../types/task";
-import { getTasks } from "../api/tasks";
+import { Navigation } from "../components/generic/Navigation"
+import { TaskList } from "../components/tasks/TaskList"
+import { TaskDetails } from "../components/tasks/TaskDetails"
+import { useState } from "react"
 
 
 
 export function TasksPage() {
-    const [tasks, setTasks] = useState<Task[]>([]);
-
-    useEffect(() => {
-        console.log("useEffect is running");
-
-        async function loadTasks() {
-            console.log("Calling getTasks()");
-
-            const data = await getTasks();
-
-            console.log(data);
-
-            setTasks(data);
-
-        }
-
-        loadTasks();
-    }, []);
+    const [selectedTaskID, setSelectedTaskID] =
+        useState<number | null>(null);
 
     return (
-        <main>
-            <h1 className="text-2xl font-bold mb-4">
-                Tasks
-            </h1>
+        <main className="p-6">
+            <header>
+                <Navigation />
+            </header>
 
-            <ul>
-                {tasks.map(task => (
-                    <li
-                        key={task.id}
-                        className="rounded-md border border-slate-300 p-4"
-                    >
-                        <p><strong>ID:</strong> {task.id}</p>
-                        <p><strong>Shot:</strong> {task.shot}</p>
-                        <p><strong>Artist:</strong> {task.artist}</p>
-                        <p><strong>Task Type:</strong> {task.task_type}</p>
-                        <p><strong>Status:</strong> {task.status}</p>
-                        <p><strong>Priority:</strong> {task.priority}</p>
-                        <p><strong>Due Date:</strong> {task.due_date}</p>
-                    </li>
-                ))}
-            </ul>
+            <div className="flex gap-6 mt-6">
+                <TaskList onSelectTask={setSelectedTaskID} />
+                <TaskDetails taskId={selectedTaskID} />
+            </div>
         </main>
-    );
+    )
 }

@@ -7,7 +7,6 @@ from backend.app_relay.crud.task import get_task, get_task_summaries
 from backend.app_relay.database import get_db
 from backend.app_relay.schemas.task import (
     TaskCreate,
-    TaskDelete,
     TaskDetails,
     TaskRead,
     TaskUpdate,
@@ -34,7 +33,7 @@ def read_tasks(db: Session = Depends(get_db)):  # noqa: B008
 
 
 @router.get(
-        "/{id}",
+        "/{task_id}",
         response_model=TaskDetails
 )
 def read_task(task_id: int, db: Session = Depends(get_db)):  # noqa: B008
@@ -56,7 +55,7 @@ def create_task(task_in: TaskCreate, db: Session = Depends(get_db)):  # noqa: B0
     return create_task_service(db=db, task_in=task_in)
 
 @router.patch(
-    "/{id}",
+    "/{task_id}",
     response_model=TaskDetails
 )
 
@@ -77,7 +76,7 @@ def update_task(task_id: int, task_in:TaskUpdate, db:Session = Depends (get_db))
     return task
 
 @router.delete(
-    "/{id}",
+    "/{task_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
 

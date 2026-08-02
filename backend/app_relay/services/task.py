@@ -9,7 +9,7 @@ from backend.app_relay.handlers.exceptions import (
     InvalidDueDateError,
 )
 from backend.app_relay.models.task import Task
-from backend.app_relay.schemas.task import TaskCreate, TaskDelete, TaskUpdate
+from backend.app_relay.schemas.task import TaskCreate, TaskUpdate
 
 
 def create_task_service(db: Session, task_in:TaskCreate) -> Task:
