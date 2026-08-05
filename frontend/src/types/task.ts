@@ -8,7 +8,7 @@ export interface TaskSummary {
     due_date: string;
 }
 
-export interface TaskDetails {
+export interface TaskDetails_old {
     id: number;
     start_date: string;
     due_date: string;
@@ -21,7 +21,7 @@ export interface TaskDetails {
     priority: string;
 }
 
-export interface TaskDetails2 {
+export interface TaskDetails {
     id: number;
 
     start_date: string;

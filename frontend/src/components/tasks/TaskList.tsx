@@ -6,9 +6,10 @@ import { TaskListItem } from "./TaskListItem";
 
 interface TaskListProps {
     onSelectTask: (taskId: number) => void;
+    clickedTaskID: number | null;
 }
 
-export function TaskList({ onSelectTask }: TaskListProps) {
+export function TaskList({ onSelectTask, clickedTaskID }: TaskListProps) {
 
     const [tasks, setTasks] = useState<TaskSummary[]>([]);
 
@@ -31,11 +32,12 @@ export function TaskList({ onSelectTask }: TaskListProps) {
                 Tasks
             </h1>
 
-            <ul>
+            <ul className="w-48">
                 {tasks.map(task => (
                     <TaskListItem
                         task={task}
                         onSelectTask={onSelectTask}
+                        isSelected={task.id === clickedTaskID}
                     />
                 ))}
             </ul>

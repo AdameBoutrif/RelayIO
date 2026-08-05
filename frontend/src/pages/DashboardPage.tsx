@@ -1,4 +1,4 @@
-import { Navigation } from '../components/generic/Navigation';
+import { Navigation } from '../components/ui/Navigation';
 import { MetricCard } from '../components/MetricCard';
 import { ReviewCard } from '../components/ReviewCard';
 import { ActivityItem } from '../components/ActivityItem';
