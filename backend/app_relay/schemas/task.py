@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime, date
 
 from pydantic import BaseModel, ConfigDict
 
@@ -65,5 +65,5 @@ class TaskUpdate(BaseModel):
     priority_id: int | None = None
 
     start_date: date | None = None
-    due_date: date | None = None
+    due_date: datetime | None = None
     task_note: str | None = None

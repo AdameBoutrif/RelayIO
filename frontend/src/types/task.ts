@@ -53,3 +53,16 @@ export interface TaskDetails {
         name: string;
     };
 }
+
+export interface TaskUpdate {
+    artist_id: number;
+    shot_id: number;
+    task_type_id: number;
+    status_id: number;
+    priority_id: number;
+
+    start_date: string;
+    due_date: string;
+    task_note: string;
+}
+

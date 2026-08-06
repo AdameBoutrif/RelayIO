@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { TaskDetails } from "../../types/task";
-import { getTaskDetails } from "../../api/tasks";
+import { getTaskDetails, updateTask } from "../../api/tasks";
 import { TaskDetailsItem } from "./TaskDetailsItem";
 import { Button } from "../ui/Button";
 import { TaskForm } from "./TaskForm";
@@ -14,6 +14,7 @@ export function TaskDetails({ taskId }: TaskDetailsProps) {
     const [task, setTask] = useState<TaskDetails | null>(null);
 
     const [isEditing, setIsEditing] = useState(false);
+
 
     useEffect(() => {
 
@@ -72,6 +73,15 @@ export function TaskDetails({ taskId }: TaskDetailsProps) {
                 <TaskForm
                     task={task}
                     onCancel={() => setIsEditing(false)}
+                    onSave={async (id, data) => {
+
+                        const updatedTask = await updateTask(id, data);
+
+                        setTask(updatedTask);
+
+                        setIsEditing(false);
+
+                    }}
                 />
             </div>
         );
