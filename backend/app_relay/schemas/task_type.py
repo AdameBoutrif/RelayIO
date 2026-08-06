@@ -1,5 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
+
 class TaskTypeRead(BaseModel):
     id: int
     name: str

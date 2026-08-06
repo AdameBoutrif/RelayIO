@@ -1,10 +1,14 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
+from backend.app_relay.handlers.exceptions import InvalidDueDateError
+from backend.app_relay.routers.artist import router as artist_router
 from backend.app_relay.routers.movie import router as movies_router
 from backend.app_relay.routers.task import router as task_router
-from backend.app_relay.handlers.exceptions import InvalidDueDateError
+from backend.app_relay.routers.task_priority import router as task_priority_router
+from backend.app_relay.routers.task_status import router as task_status_router
+from backend.app_relay.routers.task_type import router as task_type_router
 
 app = FastAPI()
 
@@ -31,3 +35,7 @@ def invalid_due_date_on_task_error(request: Request, exc: InvalidDueDateError):
 
 app.include_router(movies_router)
 app.include_router(task_router)
+app.include_router(artist_router)
+app.include_router(task_type_router)
+app.include_router(task_status_router)
+app.include_router(task_priority_router)

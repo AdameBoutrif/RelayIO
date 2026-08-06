@@ -2,6 +2,7 @@ from pydantic import BaseModel, ConfigDict
 
 from backend.app_relay.schemas.department import DepartmentRead
 
+
 class ArtistRead(BaseModel):
     id: int
     first_name: str

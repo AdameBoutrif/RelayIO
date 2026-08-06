@@ -24,7 +24,6 @@ router = APIRouter(
 
 @router.get(
         "/"
-        #response_model=list[TaskRead],
 )
 
 def read_tasks(db: Session = Depends(get_db)):  # noqa: B008
